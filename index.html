@@ -38,7 +38,59 @@
     </header>
     
     <main>
-        <!-- Konten utama halaman akan ditambahkan di sini -->
+        <!-- Slider container dengan navigasi dan indikator -->
+        <div class="hero-slider-container">
+            <!-- Tombol navigasi kiri dan kanan -->
+            <button class="slider-nav prev-slide" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-nav next-slide" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Container untuk slides -->
+            <div class="hero-slider">
+                <!-- Slide 1 -->
+                <div class="slide active">
+                    <!-- Menggunakan background color sementara karena belum ada gambar -->
+                    <div class="slide-bg" style="background-color: #49664a;"></div>
+                    <div class="slide-content">
+                        <h2>Welcome to Yoo's Shop</h2>
+                        <p>Your one-stop online store for everything you need!</p>
+                        <a href="products.html" class="btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <!-- Menggunakan background color sementara karena belum ada gambar -->
+                    <div class="slide-bg" style="background-color: #334b34;"></div>
+                    <div class="slide-content">
+                        <h2>Exclusive Offers</h2>
+                        <p>Check out our latest deals and discounts!</p>
+                        <a href="products.html" class="btn-primary">View Offers</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <!-- Menggunakan background color sementara karena belum ada gambar -->
+                    <div class="slide-bg" style="background-color: #5a775b;"></div>
+                    <div class="slide-content">
+                        <h2>New Arrivals</h2>
+                        <p>Discover our latest products and collections!</p>
+                        <a href="products.html" class="btn-primary">Explore Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Indikator slide (dots) -->
+            <div class="slider-indicators">
+                <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+            </div>
+        </div>
     </main>
 </body>
 </html>
