@@ -11,17 +11,18 @@
 <body>
     <header id="main-header">
         <div class="header-top">
-            <h1 id="logo">Yoo's Shop</h1>
+            <a href="index.html" id="logo">
+                <img src="assets/logo.png" alt="Yoo's Shop Logo" class="logo-img">
+            </a>
+            <form class="search-form" action="#" method="get">
+                <input type="text" id="search-input" placeholder="Search products..." aria-label="Search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
             <ul class="nav-auth">
                 <li><a href="login.html" class="btn-auth">Login</a></li>
                 <li><a href="register.html" class="btn-auth">Register</a></li>
             </ul>
         </div>
-        
-        <form class="search-form" action="#" method="get">
-            <input type="text" id="search-input" placeholder="Search products..." aria-label="Search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
         
         <nav>
             <div class="mobile-menu-toggle">
@@ -52,34 +53,74 @@
             <div class="hero-slider">
                 <!-- Slide 1 -->
                 <div class="slide active">
-                    <!-- Menggunakan background color sementara karena belum ada gambar -->
-                    <div class="slide-bg" style="background-color: #49664a;"></div>
-                    <div class="slide-content">
-                        <h2>Welcome to Yoo's Shop</h2>
-                        <p>Your one-stop online store for everything you need!</p>
-                        <a href="products.html" class="btn-primary">Shop Now</a>
+                    <!-- Menggunakan gambar dari assets -->
+                    <div class="slide-bg" style="background-image: url('assets/slide1.png');"></div>
+                    <div class="slide-content-wrapper">
+                        <div class="slide-content main-content">
+                            <h2>Welcome to Yoo's Shop</h2>
+                            <p>Your one-stop online store for everything you need!</p>
+                            <a href="products.html" class="btn-primary">Shop Now</a>
+                        </div>
+                        <div class="slide-content side-content">
+                            <div class="promo-tag">Limited Time</div>
+                            <h3>First Purchase Discount</h3>
+                            <p class="promo-text">Get <span class="highlight">20% OFF</span> on your first order with code: <span class="promo-code">WELCOME20</span></p>
+                            <div class="countdown">
+                                <span>Offer ends in:</span>
+                                <div class="timer">48:00:00</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Slide 2 -->
                 <div class="slide">
-                    <!-- Menggunakan background color sementara karena belum ada gambar -->
-                    <div class="slide-bg" style="background-color: #334b34;"></div>
-                    <div class="slide-content">
-                        <h2>Exclusive Offers</h2>
-                        <p>Check out our latest deals and discounts!</p>
-                        <a href="products.html" class="btn-primary">View Offers</a>
+                    <!-- Menggunakan gambar dari assets -->
+                    <div class="slide-bg" style="background-image: url('assets/slide2.png');"></div>
+                    <div class="slide-content-wrapper">
+                        <div class="slide-content main-content">
+                            <h2>Exclusive Offers</h2>
+                            <p>Check out our latest deals and discounts!</p>
+                            <a href="products.html" class="btn-primary">View Offers</a>
+                        </div>
+                        <div class="slide-content side-content">
+                            <div class="promo-tag">Hot Deal</div>
+                            <h3>Buy One Get One Free</h3>
+                            <p class="promo-text">On selected items from our <span class="highlight">Premium Collection</span></p>
+                            <div class="features-list">
+                                <div class="feature"><i class="fas fa-check"></i> Free Shipping</div>
+                                <div class="feature"><i class="fas fa-check"></i> 30-Day Returns</div>
+                                <div class="feature"><i class="fas fa-check"></i> Quality Guarantee</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Slide 3 -->
                 <div class="slide">
-                    <!-- Menggunakan background color sementara karena belum ada gambar -->
-                    <div class="slide-bg" style="background-color: #5a775b;"></div>
-                    <div class="slide-content">
-                        <h2>New Arrivals</h2>
-                        <p>Discover our latest products and collections!</p>
-                        <a href="products.html" class="btn-primary">Explore Now</a>
+                    <!-- Menggunakan gambar dari assets -->
+                    <div class="slide-bg" style="background-image: url('assets/slide3.png');"></div>
+                    <div class="slide-content-wrapper">
+                        <div class="slide-content main-content">
+                            <h2>New Arrivals</h2>
+                            <p>Discover our latest products and collections!</p>
+                            <a href="products.html" class="btn-primary">Explore Now</a>
+                        </div>
+                        <div class="slide-content side-content">
+                            <div class="promo-tag">Trending</div>
+                            <h3>Seasonal Collection</h3>
+                            <p class="promo-text">Be the first to shop our <span class="highlight">New Season Items</span></p>
+                            <div class="rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.8/5 from 2,400+ reviews</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -91,6 +132,383 @@
                 <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
             </div>
         </div>
+        <!-- Trending Products Section -->
+        <section class="product-section">
+            <div class="section-header">
+                <h2>Trending Products</h2>
+                <p>Our most popular items this week</p>
+            </div>
+            
+            <div class="product-slider-container">
+                <button class="product-nav prev-product" aria-label="Previous products">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="product-slider">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-badge">Hot</div>
+                        <div class="product-img" style="background-color: #49664a;"></div>
+                        <div class="product-info">
+                            <h3>Premium Headphones</h3>
+                            <div class="product-price">
+                                <span class="current-price">$129.99</span>
+                                <span class="old-price">$159.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(120)</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-badge sale">-20%</div>
+                        <div class="product-img" style="background-color: #5a775b;"></div>
+                        <div class="product-info">
+                            <h3>Wireless Speaker</h3>
+                            <div class="product-price">
+                                <span class="current-price">$89.99</span>
+                                <span class="old-price">$109.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(85)</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-img" style="background-color: #334b34;"></div>
+                        <div class="product-info">
+                            <h3>Smart Watch</h3>
+                            <div class="product-price">
+                                <span class="current-price">$199.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(210)</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-badge new">New</div>
+                        <div class="product-img" style="background-color: #b2edb4;"></div>
+                        <div class="product-info">
+                            <h3>Bluetooth Earbuds</h3>
+                            <div class="product-price">
+                                <span class="current-price">$79.99</span>
+                                <span class="old-price">$99.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                <span>(45)</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="product-card">
+                        <div class="product-img" style="background-color: #7a9a7b;"></div>
+                        <div class="product-info">
+                            <h3>Portable Charger</h3>
+                            <div class="product-price">
+                                <span class="current-price">$49.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(78)</span>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="product-nav next-product" aria-label="Next products">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="view-all-container">
+                <a href="products.html" class="btn-view-all">View All Trending Products</a>
+            </div>
+        </section>
+        
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <div class="section-header">
+                <h2>Shop by Category</h2>
+                <p>Browse our wide range of product categories</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #49664a;"></div>
+                    <h3>Electronics</h3>
+                    <p>120+ Products</p>
+                    <a href="category.html" class="category-link">Shop Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #5a775b;"></div>
+                    <h3>Fashion</h3>
+                    <p>250+ Products</p>
+                    <a href="category.html" class="category-link">Shop Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #334b34;"></div>
+                    <h3>Home & Living</h3>
+                    <p>180+ Products</p>
+                    <a href="category.html" class="category-link">Shop Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img" style="background-color: #b2edb4;"></div>
+                    <h3>Beauty</h3>
+                    <p>95+ Products</p>
+                    <a href="category.html" class="category-link">Shop Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Products Section -->
+        <section class="product-section featured-section">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <p>Handpicked by our experts for you</p>
+            </div>
+            
+            <div class="featured-slider-container">
+                <button class="product-nav prev-featured" aria-label="Previous featured products">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="featured-slider">
+                    <!-- Featured Product 1 -->
+                    <div class="product-card featured-card">
+                        <div class="product-badge featured">Featured</div>
+                        <div class="product-img" style="background-color: #49664a;"></div>
+                        <div class="product-info">
+                            <h3>Premium Laptop</h3>
+                            <div class="product-price">
+                                <span class="current-price">$1,299.99</span>
+                                <span class="old-price">$1,499.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(320)</span>
+                            </div>
+                            <p class="product-description">Ultra-thin, powerful laptop with 16GB RAM and 512GB SSD storage.</p>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Product 2 -->
+                    <div class="product-card featured-card">
+                        <div class="product-badge featured">Featured</div>
+                        <div class="product-img" style="background-color: #5a775b;"></div>
+                        <div class="product-info">
+                            <h3>Smart Home Hub</h3>
+                            <div class="product-price">
+                                <span class="current-price">$249.99</span>
+                                <span class="old-price">$299.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(185)</span>
+                            </div>
+                            <p class="product-description">Control your entire home with voice commands and smart automation.</p>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Product 3 -->
+                    <div class="product-card featured-card">
+                        <div class="product-badge featured">Featured</div>
+                        <div class="product-img" style="background-color: #334b34;"></div>
+                        <div class="product-info">
+                            <h3>4K Smart TV</h3>
+                            <div class="product-price">
+                                <span class="current-price">$899.99</span>
+                                <span class="old-price">$1,099.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(410)</span>
+                            </div>
+                            <p class="product-description">Crystal clear 4K resolution with smart features and streaming apps built-in.</p>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Product 4 -->
+                    <div class="product-card featured-card">
+                        <div class="product-badge featured">Featured</div>
+                        <div class="product-img" style="background-color: #b2edb4;"></div>
+                        <div class="product-info">
+                            <h3>Wireless Earbuds Pro</h3>
+                            <div class="product-price">
+                                <span class="current-price">$149.99</span>
+                                <span class="old-price">$199.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(275)</span>
+                            </div>
+                            <p class="product-description">Premium sound quality with active noise cancellation and 24-hour battery life.</p>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                            <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="product-nav next-featured" aria-label="Next featured products">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="view-all-container">
+                <a href="products.html" class="btn-view-all">View All Featured Products</a>
+            </div>
+        </section>
     </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-column">
+                <h3>Yoo's Shop</h3>
+                <p>Your one-stop online store for everything you need. Quality products, great prices, and excellent customer service.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="category.html">Electronics</a></li>
+                    <li><a href="category.html">Fashion</a></li>
+                    <li><a href="category.html">Home & Living</a></li>
+                    <li><a href="category.html">Beauty</a></li>
+                    <li><a href="category.html">Accessories</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> info@yoosshop.com</li>
+                </ul>
+                <div class="newsletter">
+                    <h4>Subscribe to our newsletter</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2023 Yoo's Shop. All Rights Reserved.</p>
+            </div>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-discover"></i>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -20,12 +20,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Tambahkan class 'scrolled' ke header
             header.style.backgroundColor = '#334b34';
             header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)';
-            logo.style.fontSize = '1.6em';
+            // Perkecil logo saat scroll
+            const logoImg = logo.querySelector('.logo-img');
+            if (logoImg) {
+                logoImg.style.height = '100px';
+                logoImg.style.transform = 'scale(1.2)';
+            }
         } else {
             // Kembalikan ke style awal
             header.style.backgroundColor = '';
             header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            logo.style.fontSize = '2em';
+            // Kembalikan ukuran logo
+            const logoImg = logo.querySelector('.logo-img');
+            if (logoImg) {
+                logoImg.style.height = '120px';
+                logoImg.style.transform = 'scale(1.2)';
+            }
         }
     });
     
@@ -69,11 +79,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animasi logo saat di-hover
     logo.addEventListener('mouseover', function() {
-        this.style.textShadow = '2px 2px 8px rgba(178, 237, 180, 0.8)';
+        // Efek hover pada logo gambar
+        const logoImg = this.querySelector('.logo-img');
+        if (logoImg) {
+            logoImg.style.filter = 'drop-shadow(0 0 5px rgba(178, 237, 180, 0.8))';
+        }
     });
     
     logo.addEventListener('mouseout', function() {
-        this.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.2)';
+        // Kembalikan efek saat mouse keluar
+        const logoImg = this.querySelector('.logo-img');
+        if (logoImg) {
+            logoImg.style.filter = '';
+        }
     });
     
     // ===== KODE SLIDER =====
@@ -107,6 +125,51 @@ document.addEventListener('DOMContentLoaded', function() {
         // Tambahkan class 'active' ke slide dan indikator yang sesuai
         slides[currentSlide].classList.add('active');
         indicators[currentSlide].classList.add('active');
+        
+        // Update timer untuk slide pertama jika aktif
+        if (currentSlide === 0) {
+            updateCountdown();
+        }
+    }
+    
+    // Fungsi untuk update countdown timer
+    function updateCountdown() {
+        const timerElement = document.querySelector('.timer');
+        if (!timerElement) return;
+        
+        // Set waktu countdown (48 jam dari sekarang)
+        const now = new Date();
+        const end = new Date(now.getTime() + 48 * 60 * 60 * 1000);
+        
+        // Update timer setiap detik
+        const countdownInterval = setInterval(() => {
+            const now = new Date();
+            const diff = end - now;
+            
+            if (diff <= 0) {
+                clearInterval(countdownInterval);
+                timerElement.textContent = "00:00:00";
+                return;
+            }
+            
+            // Hitung jam, menit, detik
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Format waktu
+            const formattedHours = hours.toString().padStart(2, '0');
+            const formattedMinutes = minutes.toString().padStart(2, '0');
+            const formattedSeconds = seconds.toString().padStart(2, '0');
+            
+            // Update elemen timer
+            timerElement.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+            
+            // Hentikan interval jika slide tidak lagi aktif
+            if (currentSlide !== 0) {
+                clearInterval(countdownInterval);
+            }
+        }, 1000);
     }
     
     // Event listener untuk tombol navigasi
@@ -156,6 +219,105 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Mulai slider otomatis
     startSlideInterval();
+    
+    // Mulai countdown timer jika slide pertama aktif
+    if (currentSlide === 0) {
+        updateCountdown();
+    }
+    
+    // Product Slider Navigation
+    const productSlider = document.querySelector('.product-slider');
+    const prevProductBtn = document.querySelector('.prev-product');
+    const nextProductBtn = document.querySelector('.next-product');
+    
+    // Featured Slider Navigation
+    const featuredSlider = document.querySelector('.featured-slider');
+    const prevFeaturedBtn = document.querySelector('.prev-featured');
+    const nextFeaturedBtn = document.querySelector('.next-featured');
+    
+    if (productSlider && prevProductBtn && nextProductBtn) {
+        // Scroll amount for product slider
+        const scrollAmount = 270; // Width of product card + gap
+        
+        // Previous product button click
+        prevProductBtn.addEventListener('click', function() {
+            productSlider.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Next product button click
+        nextProductBtn.addEventListener('click', function() {
+            productSlider.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Featured products slider navigation
+    if (featuredSlider && prevFeaturedBtn && nextFeaturedBtn) {
+        // Scroll amount for featured slider
+        const featuredScrollAmount = 300; // Width of featured card + gap
+        
+        // Previous featured button click
+        prevFeaturedBtn.addEventListener('click', function() {
+            featuredSlider.scrollBy({
+                left: -featuredScrollAmount,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Next featured button click
+        nextFeaturedBtn.addEventListener('click', function() {
+            featuredSlider.scrollBy({
+                left: featuredScrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // Wishlist functionality
+    const wishlistButtons = document.querySelectorAll('.add-to-wishlist');
+    
+    wishlistButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            this.classList.toggle('active');
+            
+            // Change icon when active
+            const icon = this.querySelector('i');
+            if (this.classList.contains('active')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+            }
+        });
+    });
+    
+    // Add to cart animation
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Save original text
+            const originalText = this.innerHTML;
+            
+            // Change text and disable button
+            this.innerHTML = '<i class="fas fa-check"></i> Added';
+            this.style.backgroundColor = '#4CAF50';
+            this.disabled = true;
+            
+            // Reset after 2 seconds
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.backgroundColor = '';
+                this.disabled = false;
+            }, 2000);
+        });
+    });
     
     // Tambahkan event listener untuk menghentikan interval saat pengguna mengarahkan kursor ke slider
     const sliderContainer = document.querySelector('.hero-slider-container');
